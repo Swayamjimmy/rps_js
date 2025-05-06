@@ -8,20 +8,29 @@ function getComputerChoice() {
 let humanScore = 0;
 let compScore = 0;
 
-function showResult(winner){
-  let res = document.querySelector('.Table');
+let res = document.querySelector('.Table');
   let res1 = document.createElement('p');
 
+function showResult(winner){
+
   if (winner == 'Computer') { compScore++; 
-    res1.textContent = `You Lost! Score is ${humanScore} to ${compScore};`}
+    res1.textContent = `You Lost! Score is ${humanScore} to ${compScore}`}
   else if (winner == 'Human') { humanScore++;
-    res1.textContent = `You Won! Score is ${humanScore} to ${compScore};`}
+    res1.textContent = `You Won! Score is ${humanScore} to ${compScore}`}
   else if (winner == 'Draw'){
-    res1.textContent = `It was a Draw! Score is ${humanScore} to ${compScore};`
+    res1.textContent = `It was a Draw! Score is ${humanScore} to ${compScore}`
   }
   res.appendChild(res1);
+  
+  
   }
 
+  let rem = document.querySelector('#btnR');
+  rem.addEventListener('click', () => {
+    res.removeChild(res1);
+    humanScore = 0;
+    compScore = 0;
+  })
 
 function playRound(human , comp, humanScore, compScore) {
 
